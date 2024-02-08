@@ -1,0 +1,57 @@
+Image Difference Detection Documentation
+
+1. detection.py
+
+Functionality:
+This script aims to detect differences between two input images (input1.png and input2.png). It utilizes simple pixel-wise comparison techniques and contour detection to identify areas of dissimilarity. Bounding boxes are drawn around the detected differences, and a similarity score is calculated based on the count of non-zero pixels in the grayscale difference image.
+
+Input:
+- input1.png: First input image
+- input2.png: Second input image
+
+Output:
+- changes.png: Output image with bounding boxes drawn around detected differences
+- Similarity Score: A floating-point value indicating the similarity between the two images (ranges from 0 to 1, with 1 indicating identical images)
+
+Evaluation Metrics:
+- Similarity Score: The similarity score represents the proportion of pixels that are different between the two images. A higher score indicates a higher similarity between the images.
+
+2. detection1.py
+
+Functionality:
+Similar to detection.py, this script detects differences between two input images using pixel-wise comparison and contour detection. Additionally, it employs the Structural Similarity Index (SSIM) metric from scikit-image to quantify the structural similarity between the images. Bounding boxes are drawn around the detected differences, and the SSIM score is computed.
+
+Input:
+- input1.png: First input image
+- input2.png: Second input image
+
+Output:
+- Original.png: Image 1 with bounding boxes drawn around detected differences
+- Modified.png: Image 2 with bounding boxes drawn around detected differences
+- Diff.png: Absolute difference image showing pixel-wise differences
+- Thresh.png: Thresholded difference image
+- SSIM Score: Structural Similarity Index between the two images (ranges from -1 to 1, with 1 indicating identical images)
+
+Evaluation Metrics:
+- SSIM Score: The SSIM score measures the structural similarity between two images. A score of 1 indicates perfect similarity, while a score of -1 indicates complete dissimilarity.
+
+3. detect.py
+
+Functionality:
+This script provides an alternative approach to image difference detection using a pre-trained ResNet50 model. It extracts features from the input images using ResNet50 and computes the cosine similarity between the feature vectors. Bounding boxes are drawn around the detected differences, and a similarity score is calculated based on the cosine similarity.
+
+Input:
+- input1.png: First input image
+- input2.png: Second input image
+
+Output:
+- Image 1 with Bounding Boxes.png: Image 1 with bounding boxes drawn around detected differences
+- Similarity Score: Cosine similarity between the feature vectors extracted from the input images (ranges from -1 to 1, with 1 indicating identical images)
+
+Evaluation Metrics:
+- Similarity Score: The similarity score represents the cosine similarity between the feature vectors extracted from the input images. A higher score indicates a higher similarity between the images.
+
+General Notes:
+- Ensure that input images have the same dimensions for accurate comparison.
+- Adjust threshold values and other parameters based on specific image characteristics and requirements.
+- Evaluation metrics provide insights into the effectiveness of each approach in detecting image differences. Higher scores indicate better performance in terms of similarity.
